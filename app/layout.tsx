@@ -9,6 +9,7 @@ import "./v4.css";
 import "./v5-motion.css";
 import "./v6.css";
 import "./v6-mobile-fix.css";
+import "./v6-towels.css";
 
 const display = DM_Sans({ subsets:["latin"], weight:["500","600","700"], variable:"--font-display", display:"swap" });
 const body = Manrope({ subsets:["latin"], weight:["400","500","600","700"], variable:"--font-body", display:"swap" });
