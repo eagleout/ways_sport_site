@@ -1,0 +1,101 @@
+/* WAYS desktop spacing pass — keep the immersive backgrounds full-bleed while
+   pulling copy, navigation and conversion elements away from viewport edges. */
+
+@media (min-width: 901px) {
+  :root {
+    --page-gutter: clamp(56px, 9vw, 150px);
+    --page-gutter-wide: clamp(72px, 10vw, 180px);
+  }
+
+  .siteHeader {
+    padding-left: clamp(42px, 5vw, 86px);
+    padding-right: clamp(42px, 5vw, 86px);
+  }
+
+  .interiorCopy {
+    left: var(--page-gutter);
+    max-width: min(760px, 62vw);
+  }
+
+  .manifesto,
+  .dayStory,
+  .membership,
+  .finalCta,
+  .contentSection,
+  .pageHero {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .localSeo {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+    gap: clamp(64px, 7vw, 130px);
+  }
+
+  .chapter {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .chapterContent {
+    max-width: min(720px, 58vw);
+  }
+
+  .chapterNumber {
+    right: var(--page-gutter);
+  }
+
+  .launchCopy {
+    padding-left: clamp(56px, 6vw, 110px);
+    padding-right: var(--page-gutter);
+  }
+
+  .manifestoGrid,
+  .timeline,
+  .membershipIntro,
+  .plans,
+  .ctaRow,
+  .contentGrid,
+  .pageHero > *,
+  .contentSection > * {
+    max-width: 1420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .manifestoGrid {
+    gap: clamp(58px, 6vw, 110px);
+  }
+
+  .plans {
+    gap: 22px;
+  }
+
+  .plan {
+    padding: 32px;
+  }
+
+  .simpleHeader,
+  footer {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .finalCta h2 {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .interiorCopy h1 {
+    font-size: clamp(86px, 9vw, 150px);
+  }
+
+  .manifesto h2,
+  .dayStory h2,
+  .membership h2,
+  .localSeo h2 {
+    max-width: 1320px;
+  }
+}
