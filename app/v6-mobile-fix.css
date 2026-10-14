@@ -1,0 +1,163 @@
+/* WAYS V6 — mobile-specific composition fixes.
+   Keep the mobile hero inside the visible Safari viewport and avoid the
+   oversized sticky gap caused by classic 100vh on iOS browser chrome. */
+
+@media (max-width: 900px) {
+  :root {
+    --v6-mobile-gutter: 20px;
+  }
+
+  .v6-root {
+    overflow-x: clip;
+  }
+
+  /* Header stays compact and visually separate from the hero copy. */
+  .v6-header {
+    height: 62px;
+    min-height: 62px;
+    padding-left: var(--v6-mobile-gutter);
+    padding-right: var(--v6-mobile-gutter);
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+
+  .v6-logo {
+    width: 72px;
+  }
+
+  .v6-menu {
+    justify-self: end;
+    padding: 10px 0 10px 12px;
+  }
+
+  .v6-menu span {
+    width: 24px;
+  }
+
+  .v6-nav {
+    top: 62px;
+  }
+
+  /* The old 155vh / 100vh pairing produced a large black dead zone on iOS.
+     svh is intentionally used here because it follows the visible viewport
+     with Safari's chrome present, which is the state the visitor first sees. */
+  .v6-hero {
+    height: 132svh;
+    min-height: 760px;
+    background: var(--v6-charcoal);
+  }
+
+  .v6-hero-stage {
+    height: 100svh;
+    min-height: 620px;
+    top: 0;
+    overflow: hidden;
+  }
+
+  .v6-hero-image {
+    inset: 0;
+    background-position: 54% 50%;
+  }
+
+  .v6-hero-shade {
+    background: linear-gradient(180deg, rgba(14,12,10,.24) 0%, rgba(14,12,10,.08) 38%, rgba(14,12,10,.48) 100%);
+    opacity: .42;
+  }
+
+  /* Copy is anchored to the lower safe zone. It never shares transforms
+     with the visual layer and therefore cannot drift under the browser bar. */
+  .v6-hero-copy {
+    left: var(--v6-mobile-gutter);
+    right: var(--v6-mobile-gutter);
+    bottom: clamp(72px, 10svh, 92px);
+    width: auto;
+    max-width: 355px;
+  }
+
+  .v6-hero-copy .v6-eyebrow {
+    display: none;
+  }
+
+  .v6-hero-copy h1 {
+    margin: 0 0 20px;
+    font-size: clamp(44px, 11.8vw, 58px);
+    line-height: .94;
+    letter-spacing: -.045em;
+  }
+
+  .v6-hero-copy h1 em {
+    display: inline;
+    font-size: .96em;
+  }
+
+  .v6-hero-copy p {
+    margin: 0;
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: .09em;
+    white-space: normal;
+  }
+
+  .v6-enter-cue {
+    display: none;
+  }
+
+  .v6-hero-wash {
+    height: 13svh;
+    min-height: 80px;
+    background: linear-gradient(180deg, rgba(243,239,231,0), var(--v6-chalk) 88%);
+  }
+
+  /* The first editorial screen should immediately follow the hero rather
+     than feeling like a separate page after a long empty band. */
+  .v6-intro {
+    padding-top: 78px;
+    padding-bottom: 82px;
+  }
+
+  .v6-intro-grid {
+    gap: 20px;
+  }
+
+  .v6-intro h2 {
+    font-size: clamp(42px, 11.5vw, 58px);
+    line-height: 1;
+  }
+
+  .v6-intro-copy p {
+    font-size: 14px;
+  }
+
+  /* Keep the rest of the page editorial but less oversized on a phone. */
+  .v6-feature-copy h2,
+  .v6-lifestyle-intro h2,
+  .v6-coffee-copy h2,
+  .v6-day h2,
+  .v6-community-copy h2,
+  .v6-founders-copy h2,
+  .v6-memberships-head h2,
+  .v6-levallois-title h2,
+  .v6-final-copy h2 {
+    letter-spacing: -.04em;
+  }
+
+  .v6-manifesto-photo,
+  .v6-feature,
+  .v6-detail,
+  .v6-wide-detail,
+  .v6-coffee,
+  .v6-community,
+  .v6-founders {
+    padding-bottom: 92px;
+  }
+}
+
+/* Fallback for older engines without svh. */
+@supports not (height: 100svh) {
+  @media (max-width: 900px) {
+    .v6-hero { height: 132vh; }
+    .v6-hero-stage { height: 100vh; }
+    .v6-hero-copy { bottom: 82px; }
+    .v6-hero-wash { height: 13vh; }
+  }
+}
