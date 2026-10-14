@@ -6,6 +6,7 @@ import "./hero-fix.css";
 import "./typography.css";
 import "./rune-inspired.css";
 import "./v4.css";
+import "./v5-motion.css";
 
 const display = DM_Sans({ subsets:["latin"], weight:["500","600","700"], variable:"--font-display", display:"swap" });
 const body = Manrope({ subsets:["latin"], weight:["400","500","600","700"], variable:"--font-body", display:"swap" });
