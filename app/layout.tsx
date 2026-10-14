@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Manrope, Cormorant_Garamond } from "next/font/google";
+import { DM_Sans, Manrope, Cormorant_Garamond, Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import "./layout-spacing.css";
 import "./hero-fix.css";
@@ -7,10 +7,12 @@ import "./typography.css";
 import "./rune-inspired.css";
 import "./v4.css";
 import "./v5-motion.css";
+import "./v6.css";
 
 const display = DM_Sans({ subsets:["latin"], weight:["500","600","700"], variable:"--font-display", display:"swap" });
 const body = Manrope({ subsets:["latin"], weight:["400","500","600","700"], variable:"--font-body", display:"swap" });
 const serif = Cormorant_Garamond({ subsets:["latin"], weight:["500","600"], style:["normal","italic"], variable:"--font-serif", display:"swap" });
+const v6Display = Instrument_Sans({ subsets:["latin"], weight:["400","500","600","700"], variable:"--font-v6-display", display:"swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ways-sport-site.vercel.app"),
@@ -26,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({children}:{children:React.ReactNode}){
-  return <html lang="fr"><body className={`${display.variable} ${body.variable} ${serif.variable}`}>{children}</body></html>;
+  return <html lang="fr"><body className={`${display.variable} ${body.variable} ${serif.variable} ${v6Display.variable}`}>{children}</body></html>;
 }
