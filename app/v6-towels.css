@@ -167,3 +167,25 @@
   .v6-recover-visual{min-height:390px!important;padding:70px 22px 72px!important}
   .v6-towel-dark{box-shadow:0 18px 30px rgba(0,0,0,.28),0 33px 0 -14px #45322e,0 45px 34px -20px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.07)}
 }
+
+/* Exact user-approved visual for the Founding Members section. */
+.v6-founders-media{
+  padding:0!important;
+  min-height:680px!important;
+  background:#d5c4b1 url("/ways-founders-towels.svg") center center/cover no-repeat!important;
+}
+.v6-founders-media::before,
+.v6-founders-media::after{
+  display:none!important;
+}
+.v6-founders-media > .v6-towel{
+  display:none!important;
+}
+
+@media (max-width:900px){
+  .v6-founders-media{
+    min-height:520px!important;
+    padding:0!important;
+    background-position:center center!important;
+  }
+}
