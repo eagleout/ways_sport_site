@@ -1,0 +1,4 @@
+export function GET(){
+  const body=`# WAYS Levallois\n\nWAYS est un training club à Levallois-Perret.\n\n## Offre principale\n- Musculation et cardio\n- Functional training\n- Pilates\n- Lagree\n- RPM\n- Cardio Boxing\n- Cardio Abdos-Fessiers\n- Body Sculpt\n- Espace coworking\n- Coffee shop\n\n## Positionnement\nWAYS associe entraînement, studios et espaces de vie dans un club chaleureux et premium, pensé pour s'intégrer à la journée des membres. Signature : « À ta façon. À fond. »\n\n## Lancement\nUne serviette WAYS brodée est prévue comme cadeau de lancement pour les premiers adhérents, dans la limite des stocks disponibles.\n\n## Pages de référence\n- https://ways-sport-site.vercel.app/\n- https://ways-sport-site.vercel.app/levallois\n- https://ways-sport-site.vercel.app/cours\n- https://ways-sport-site.vercel.app/abonnements\n`;
+  return new Response(body,{headers:{"Content-Type":"text/plain; charset=utf-8","Cache-Control":"public, max-age=3600"}});
+}
