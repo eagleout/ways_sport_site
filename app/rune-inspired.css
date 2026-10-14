@@ -1,0 +1,199 @@
+/* WAYS — editorial social-club direction.
+   Inspired by premium social sports clubs, while keeping WAYS visually distinct. */
+
+:root{
+  --ways-ink:#171614;
+  --ways-paper:#f2eee7;
+  --ways-warm:#d2b8a8;
+  --ways-copper:#b97f60;
+  --ways-line:rgba(23,22,20,.18);
+}
+
+.waysHome{overflow:hidden;background:var(--ways-ink)}
+
+/* Header */
+.editorialHeader{
+  height:76px;
+  padding-inline:clamp(24px,4.5vw,78px);
+  grid-template-columns:170px 1fr 170px;
+  background:linear-gradient(180deg,rgba(17,16,15,.86),rgba(17,16,15,.06));
+  backdrop-filter:blur(8px);
+}
+.editorialHeader .brandLogo img{width:132px}
+.editorialHeader .nav{gap:30px;font-size:9px;letter-spacing:.16em}
+.editorialHeader .joinHeader{padding:12px 14px;border-color:rgba(255,255,255,.35)}
+
+/* Hero */
+.runeHeroCopy{z-index:3;max-width:950px}
+.runeHeroCopy h1{
+  font-size:clamp(68px,8.8vw,150px)!important;
+  line-height:.83!important;
+  letter-spacing:-.065em!important;
+  font-weight:700!important;
+}
+.runeHeroCopy p{font-size:15px!important;letter-spacing:.2em!important;font-family:var(--font-body),sans-serif!important}
+
+/* Editorial intro */
+.runeIntro{
+  background:var(--ways-paper);
+  color:var(--ways-ink);
+  padding:clamp(110px,11vw,180px) clamp(28px,7vw,120px) clamp(100px,10vw,160px);
+}
+.runeIntroTop{display:flex;justify-content:space-between;align-items:flex-start;border-top:1px solid var(--ways-line);padding-top:18px;margin-bottom:clamp(60px,7vw,110px)}
+.runeIndex{font-size:10px;letter-spacing:.17em;font-weight:700;text-transform:uppercase}
+.runeIntroSide{margin:0;text-align:right;font-size:10px;line-height:1.6;letter-spacing:.12em;font-weight:700}
+.runeIntroGrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:clamp(50px,8vw,140px);align-items:end}
+.runeIntroGrid h2{
+  margin:0;
+  font-family:var(--font-display),sans-serif;
+  font-size:clamp(64px,8.7vw,150px);
+  line-height:.88;
+  letter-spacing:-.065em;
+  font-weight:650;
+}
+.runeIntroGrid h2 em{font-style:normal;font-weight:500;color:#6d625c}
+.runeIntroCopy{max-width:560px;padding-bottom:12px}
+.runeLead{font-size:clamp(20px,2vw,30px);line-height:1.45;font-weight:600;color:var(--ways-ink)!important}
+.runeIntroCopy>p:not(.runeLead){font-size:15px;line-height:1.8;color:#5f5752}
+.runeTextLink{display:inline-flex;gap:28px;align-items:center;margin-top:30px;padding-bottom:8px;border-bottom:1px solid currentColor;font-size:10px;letter-spacing:.12em;font-weight:750;text-transform:uppercase}
+.runeTextLink span{font-size:16px}
+.lightLink{color:var(--ways-paper)}
+
+/* Ticker */
+.waysTicker{background:var(--ways-warm);color:var(--ways-ink);overflow:hidden;border-top:1px solid rgba(23,22,20,.15);border-bottom:1px solid rgba(23,22,20,.15)}
+.waysTicker>div{white-space:nowrap;padding:18px 0;font-size:clamp(18px,2vw,30px);font-weight:650;letter-spacing:-.03em;word-spacing:22px;transform:translateX(-2vw)}
+.waysTicker span{opacity:.45}
+
+/* Photo statement */
+.runePhotoStatement{
+  min-height:90vh;
+  padding:clamp(34px,4vw,70px);
+  background:var(--ways-ink);
+  display:grid;
+  grid-template-columns:1fr .62fr .8fr;
+  gap:clamp(18px,2.4vw,42px);
+  align-items:stretch;
+}
+.statementImage{background-size:cover;background-position:center;min-height:70vh}
+.statementImageA{background-image:linear-gradient(rgba(0,0,0,.06),rgba(0,0,0,.15)),url("https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=1600&q=86")}
+.statementImageB{background-image:linear-gradient(rgba(0,0,0,.06),rgba(0,0,0,.12)),url("https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1400&q=86");align-self:end;min-height:52vh}
+.statementWords{display:flex;flex-direction:column;justify-content:space-between;padding:3vh 0 2vh;color:var(--ways-paper)}
+.statementWords span{font-family:var(--font-display),sans-serif;font-size:clamp(48px,5.2vw,88px);line-height:.9;letter-spacing:-.055em;font-weight:650}
+
+/* Spaces */
+.runeSpaces{background:var(--ways-paper);color:var(--ways-ink);padding:clamp(100px,10vw,160px) 0 0}
+.runeSpacesHead{padding:0 clamp(28px,7vw,120px) clamp(90px,9vw,145px);display:grid;grid-template-columns:.42fr 1.25fr .7fr;gap:clamp(30px,5vw,90px);align-items:end}
+.runeSpacesHead h2{margin:0;font-family:var(--font-display),sans-serif;font-size:clamp(64px,8vw,136px);line-height:.88;letter-spacing:-.06em;font-weight:650}
+.runeSpacesHead p{margin:0 0 8px;font-size:15px;line-height:1.75;color:#625a55;max-width:440px}
+.spaceRows{border-top:1px solid var(--ways-line)}
+.spaceRow{display:grid;grid-template-columns:minmax(320px,.72fr) 1.28fr;min-height:76vh;border-bottom:1px solid var(--ways-line)}
+.spaceRow.reverse{grid-template-columns:1.28fr minmax(320px,.72fr)}
+.spaceRow.reverse .spaceMeta{order:2}
+.spaceRow.reverse .spaceImageWrap{order:1}
+.spaceMeta{padding:clamp(50px,6vw,100px) clamp(28px,7vw,110px);display:flex;flex-direction:column;justify-content:flex-end}
+.spaceNo{font-size:10px;letter-spacing:.16em;font-weight:700;margin-bottom:auto}
+.spaceMeta h3{font-family:var(--font-display),sans-serif;font-size:clamp(62px,7.5vw,124px);line-height:.88;letter-spacing:-.06em;margin:60px 0 18px;font-weight:650}
+.spaceLine{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 24px}
+.spaceText{max-width:500px;font-size:15px;line-height:1.75;color:#645c57;margin:0}
+.spaceImageWrap{position:relative;overflow:hidden;min-height:76vh}
+.spaceImageWrap img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.spaceRow:hover .spaceImageWrap img{transform:scale(1.025)}
+.imageCaption{position:absolute;left:20px;bottom:18px;background:rgba(242,238,231,.92);color:var(--ways-ink);padding:8px 10px;font-size:9px;letter-spacing:.12em;font-weight:700}
+
+/* Social / work / coffee */
+.socialClubBlock{background:#d7c2b4;color:var(--ways-ink);padding:clamp(100px,10vw,160px) clamp(28px,6vw,105px)}
+.socialClubTitle{display:grid;grid-template-columns:.45fr 1.55fr;gap:50px;align-items:start;margin-bottom:70px}
+.socialClubTitle h2{margin:0;font-family:var(--font-display),sans-serif;font-size:clamp(64px,8vw,136px);line-height:.88;letter-spacing:-.06em;font-weight:650}
+.socialCards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.socialCard{background:var(--ways-paper);display:grid;grid-template-rows:minmax(360px,58vh) auto}
+.socialCardImage{background-size:cover;background-position:center}
+.coworkCard .socialCardImage{background-image:url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=86")}
+.coffeeCard .socialCardImage{background-image:url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1400&q=86")}
+.socialCardCopy{padding:38px 38px 44px}
+.socialCardCopy>span{font-size:9px;letter-spacing:.14em;font-weight:700}
+.socialCardCopy h3{margin:25px 0 22px;font-family:var(--font-display),sans-serif;font-size:clamp(44px,4.6vw,78px);line-height:.9;letter-spacing:-.055em;font-weight:650}
+.socialCardCopy p{max-width:520px;font-size:14px;line-height:1.7;color:#635c57}
+
+/* First members */
+.runeLaunch{background:#cbb2a1}
+.runeLaunch .launchCopy{padding-left:clamp(40px,6vw,100px);padding-right:clamp(40px,6vw,100px)}
+.runeLaunch .launchCopy h2{font-size:clamp(58px,6.8vw,116px)!important;letter-spacing:-.06em!important;font-weight:650!important}
+
+/* Day */
+.runeDay{background:var(--ways-ink);color:var(--ways-paper);padding:clamp(100px,10vw,160px) clamp(28px,7vw,120px)}
+.runeDayGrid{margin-top:55px;border-top:1px solid rgba(242,238,231,.2);border-bottom:1px solid rgba(242,238,231,.2);display:grid;grid-template-columns:repeat(4,1fr)}
+.runeDayGrid div{padding:35px 12px 40px 0;border-right:1px solid rgba(242,238,231,.16)}
+.runeDayGrid div:last-child{border-right:0}
+.runeDayGrid span{display:block;font-size:11px;letter-spacing:.12em;opacity:.62;margin-bottom:12px}
+.runeDayGrid strong{font-family:var(--font-display),sans-serif;font-size:clamp(34px,4vw,62px);font-weight:600;letter-spacing:-.05em}
+.runeDay>p{margin:50px 0 0;max-width:800px;font-family:var(--font-display),sans-serif;font-size:clamp(44px,5vw,82px);line-height:.95;letter-spacing:-.05em;font-weight:500}
+
+/* Membership */
+.runeMembership{background:var(--ways-paper)!important}
+.runeMembership .membershipIntro{grid-template-columns:.35fr 1.25fr .7fr}
+.runeMembership .membershipIntro h2{font-size:clamp(58px,7vw,118px)!important;letter-spacing:-.06em!important;font-weight:650!important}
+.runeMembership .plans{gap:0;border-top:1px solid var(--ways-line);border-left:1px solid var(--ways-line)}
+.runeMembership .plan{border:0;border-right:1px solid var(--ways-line);border-bottom:1px solid var(--ways-line);min-height:520px;background:transparent}
+.runeMembership .plan.featured{background:var(--ways-ink);color:var(--ways-paper);transform:none}
+.runeMembership .planName{font-size:34px!important;font-weight:650!important;letter-spacing:-.035em!important}
+.runeMembership .price{font-size:70px!important;font-weight:600!important;letter-spacing:-.05em!important}
+
+/* Local / FAQ */
+.runeLocal{background:#201d1b!important;padding-top:clamp(110px,11vw,170px)!important;padding-bottom:clamp(110px,11vw,170px)!important}
+.runeLocal h2{font-size:clamp(58px,7.4vw,122px)!important;letter-spacing:-.06em!important;font-weight:650!important}
+.runeLocal .localCopy>p{font-size:18px;line-height:1.7}
+
+/* Final */
+.runeFinal{background:#b67f61!important;color:var(--ways-ink)!important;padding-top:clamp(120px,12vw,190px)!important;padding-bottom:clamp(130px,13vw,210px)!important}
+.runeFinal h2{font-size:clamp(62px,8.8vw,148px)!important;letter-spacing:-.07em!important;font-weight:650!important;max-width:1350px}
+.runeFinal h2 em{font-style:normal;font-weight:500;color:#3f3029}
+
+/* Interior pages follow the same editorial family */
+.subPage .subHero,.pageShell .pageHero{background:var(--ways-paper)!important;color:var(--ways-ink)!important;border-bottom:1px solid var(--ways-line)}
+.subPage .subHero h1,.pageShell .pageHero h1{font-size:clamp(62px,8vw,132px)!important;letter-spacing:-.06em!important;font-weight:650!important}
+.subPage .subSection,.contentSection{background:var(--ways-paper)!important;color:var(--ways-ink)!important}
+.courseCard,.contentCard,.v2Plan{border-radius:0!important;border-color:var(--ways-line)!important}
+.offerBanner{background:#d7c2b4!important;color:var(--ways-ink)!important}
+.offerBanner h2{font-size:clamp(54px,6.5vw,104px)!important;letter-spacing:-.06em!important;font-weight:650!important}
+
+@media (max-width: 1000px){
+  .runeIntroGrid,.runeSpacesHead,.socialClubTitle{grid-template-columns:1fr}
+  .runePhotoStatement{grid-template-columns:1fr 1fr}
+  .statementWords{grid-column:1/-1;order:-1;flex-direction:row;padding:0 0 15px}
+  .spaceRow,.spaceRow.reverse{grid-template-columns:1fr}
+  .spaceRow.reverse .spaceMeta,.spaceRow.reverse .spaceImageWrap{order:initial}
+  .spaceMeta{min-height:420px}
+  .spaceImageWrap{min-height:62vh}
+  .socialCards{grid-template-columns:1fr}
+  .runeMembership .membershipIntro{grid-template-columns:1fr}
+}
+
+@media (max-width: 900px){
+  .editorialHeader{padding-inline:20px;grid-template-columns:1fr auto;height:70px}
+  .runeHeroCopy h1{font-size:clamp(54px,15vw,82px)!important;line-height:.86!important}
+  .runeHeroCopy p{font-size:10px!important;letter-spacing:.14em!important}
+  .runeIntro{padding-left:20px;padding-right:20px}
+  .runeIntroTop{margin-bottom:55px}
+  .runeIntroSide{display:none}
+  .runeIntroGrid h2{font-size:clamp(52px,14vw,78px)}
+  .waysTicker>div{font-size:18px;padding:14px 0}
+  .runePhotoStatement{padding:20px;grid-template-columns:1fr;min-height:0}
+  .statementWords{flex-direction:column;gap:6px}
+  .statementImage,.statementImageB{min-height:58vh}
+  .runeSpacesHead{padding-left:20px;padding-right:20px}
+  .runeSpacesHead h2{font-size:clamp(54px,14vw,82px)}
+  .spaceMeta{padding:48px 20px 54px;min-height:360px}
+  .spaceMeta h3{font-size:clamp(54px,15vw,84px);margin-top:50px}
+  .spaceImageWrap{min-height:54vh}
+  .socialClubBlock{padding-left:20px;padding-right:20px}
+  .socialClubTitle h2{font-size:clamp(54px,14vw,82px)}
+  .socialCard{grid-template-rows:48vh auto}
+  .socialCardCopy{padding:30px 24px 34px}
+  .runeDay{padding-left:20px;padding-right:20px}
+  .runeDayGrid{grid-template-columns:1fr 1fr}
+  .runeDayGrid div:nth-child(2){border-right:0}
+  .runeDayGrid div:nth-child(-n+2){border-bottom:1px solid rgba(242,238,231,.16)}
+  .runeMembership .plans{grid-template-columns:1fr;border-left:0}
+  .runeMembership .plan{border-left:1px solid var(--ways-line)}
+  .runeFinal h2{font-size:clamp(52px,14vw,84px)!important}
+}
