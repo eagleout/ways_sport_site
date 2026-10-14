@@ -3,46 +3,46 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const chapters = [
+const spaces = [
   {
     id: "training",
-    kicker: "01 · TRAINING",
-    title: "LE SÉRIEUX DU TRAINING. SANS LE BRUIT AUTOUR.",
-    text: "Musculation, cardio et functional training dans un club pensé pour s’entraîner vraiment : du bon matériel, de l’espace et une ambiance qui donne envie de revenir.",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2200&q=84",
-    tags: ["STRENGTH", "CARDIO", "FUNCTIONAL"]
+    no: "01",
+    title: "TRAINING",
+    line: "Force · Cardio · Functional",
+    text: "Un plateau pensé pour s’entraîner sérieusement, avec de l’espace, de la lumière et du matériel qui donne envie de revenir.",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1800&q=86"
   },
   {
     id: "studios",
-    kicker: "02 · STUDIOS",
-    title: "LE RYTHME CHANGE. L’EXIGENCE RESTE.",
-    text: "Pilates, Lagree, RPM, Cardio Boxing, Cardio Abdos-Fessiers et Body Sculpt. Des cours choisis pour leur complémentarité, pas pour remplir un planning.",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2200&q=84",
-    tags: ["PILATES", "LAGREE", "RPM", "BOXING"]
+    no: "02",
+    title: "STUDIOS",
+    line: "Pilates · Lagree · RPM · Boxing",
+    text: "Des formats choisis pour leur complémentarité. On vient pour bouger autrement, progresser et retrouver l’énergie du groupe.",
+    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1800&q=86"
   },
   {
     id: "recover",
-    kicker: "03 · RECOVER",
-    title: "RÉCUPÉRER FAIT PARTIE DU TRAINING.",
-    text: "Vestiaires, confort et récupération prolongent la séance. Tu repars prêt pour la suite, pas pressé de quitter le club.",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=2200&q=84",
-    tags: ["RECOVER", "RESET", "READY"]
+    no: "03",
+    title: "RECOVER",
+    line: "Reset · Comfort · Ready",
+    text: "La récupération fait partie de l’expérience. Un lieu où l’on peut ralentir avant de repartir dans sa journée.",
+    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1800&q=86"
   },
   {
     id: "cowork",
-    kicker: "04 · COWORKING",
-    title: "UNE SÉANCE. PUIS TA JOURNÉE.",
-    text: "Un espace coworking intégré au club pour répondre à un mail, préparer un rendez-vous ou avancer sans changer d’adresse.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2200&q=84",
-    tags: ["WORK", "FOCUS", "CONNECT"]
+    no: "04",
+    title: "WORK",
+    line: "Coworking · Focus · Connect",
+    text: "Répondre à un mail, passer un appel, préparer un rendez-vous. Ton entraînement et ta journée peuvent enfin partager la même adresse.",
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=86"
   },
   {
     id: "coffee",
-    kicker: "05 · COFFEE SHOP",
-    title: "PRENDS TON TEMPS. PAS UN DÉTOUR.",
-    text: "Café, boissons signature et moments de pause. Le coffee shop fait de WAYS un lieu où l’on peut rester, se retrouver et repartir quand on veut.",
-    image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=84",
-    tags: ["COFFEE", "SOCIAL", "RESET"]
+    no: "05",
+    title: "COFFEE",
+    line: "Coffee · Drinks · Social",
+    text: "Un vrai espace de vie pour boire un café, débriefer une séance, retrouver quelqu’un ou simplement prendre son temps.",
+    image: "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=86"
   }
 ];
 
@@ -81,7 +81,7 @@ export default function ImmersiveHome() {
     "@type": "HealthClub",
     name: "WAYS Levallois",
     url: "https://ways-sport.fr",
-    description: "Training club premium à Levallois-Perret avec musculation, cardio, cours collectifs, espace coworking et coffee shop.",
+    description: "Training club premium à Levallois-Perret avec musculation, cardio, Pilates, Lagree, RPM, espace coworking et coffee shop.",
     address: { "@type": "PostalAddress", addressLocality: "Levallois-Perret", addressRegion: "Île-de-France", addressCountry: "FR" },
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Espace coworking", value: true },
@@ -91,97 +91,145 @@ export default function ImmersiveHome() {
   };
 
   return (
-    <main>
+    <main className="waysHome">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      <header className="siteHeader">
+      <header className="siteHeader editorialHeader">
         <Link href="/" className="brandLogo" aria-label="WAYS accueil"><img src="/ways-logo.svg" alt="WAYS" /></Link>
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navigation principale">
           <a href="#club">Le club</a>
           <Link href="/cours">Cours</Link>
           <a href="#cowork">Coworking</a>
-          <a href="#coffee">Coffee shop</a>
+          <a href="#coffee">Coffee</a>
           <Link href="/abonnements">Abonnements</Link>
         </nav>
-        <Link className="joinHeader" href="/abonnements">REJOINDRE WAYS</Link>
+        <Link className="joinHeader" href="/abonnements">DEVENIR MEMBRE</Link>
         <button className="menuButton" aria-expanded={menuOpen} aria-label="Ouvrir le menu" onClick={() => setMenuOpen(v => !v)}><span/><span/></button>
       </header>
 
       <section id="top" ref={heroRef} className="doorSequence">
         <div className="stickyStage">
-          <div className="clubInterior" style={{ transform: `scale(${1 + enter * 0.16})`, filter: `brightness(${0.54 + enter * 0.46})` }}>
+          <div className="clubInterior" style={{ transform: `scale(${1 + enter * 0.13})`, filter: `brightness(${0.57 + enter * 0.43})` }}>
             <div className="interiorGlow" />
           </div>
-          <div className="interiorCopy" style={{ opacity: Math.max(0, (enter - .18) * 1.8) }}>
+          <div className="interiorCopy runeHeroCopy" style={{ opacity: Math.max(0, (enter - .18) * 1.8) }}>
             <span>WAYS · LEVALLOIS-PERRET</span>
-            <h1>ENTRAÎNE-TOI.<br/>RESTE POUR LE RESTE.</h1>
-            <p>TRAINING · STUDIOS · COFFEE · WORK</p>
+            <h1>SPORT.<br/>WORK.<br/>COFFEE.</h1>
+            <p>ONE CLUB. YOUR WAYS.</p>
           </div>
           <div className="door doorLeft" style={{ transform: `translateX(${-door * 103}%)` }}><div className="doorTexture"/></div>
           <div className="door doorRight" style={{ transform: `translateX(${door * 103}%)` }}><div className="doorTexture"/></div>
-          <div className="doorBrand" style={{ opacity: 1 - Math.min(1, door * 1.8) }}><img src="/ways-logo.svg" alt="WAYS"/><small>TRAINING CLUB · LEVALLOIS</small></div>
+          <div className="doorBrand" style={{ opacity: 1 - Math.min(1, door * 1.8) }}><img src="/ways-logo.svg" alt="WAYS"/><small>TRAINING & SOCIAL CLUB · LEVALLOIS</small></div>
           <div className="scrollCue" style={{ opacity: 1 - door * 1.6 }}><span>ENTREZ</span><i/></div>
         </div>
       </section>
 
-      <section id="club" className="manifesto">
-        <div className="eyebrow">WAYS / TRAINING CLUB</div>
-        <div className="manifestoGrid">
-          <h2>UN CLUB QUI NE S’ARRÊTE PAS À LA SÉANCE.</h2>
-          <div>
-            <p className="lead">Tu viens pour t’entraîner. Tu restes parce que tout est pensé pour la suite.</p>
-            <p>WAYS réunit training, studios, coworking et coffee shop dans une même adresse à Levallois. Un lieu exigeant dans le sport, simple dans l’usage, agréable à vivre.</p>
-            <a className="textLink" href="#journey">DÉCOUVRIR WAYS <span>↘</span></a>
+      <section id="club" className="runeIntro">
+        <div className="runeIntroTop">
+          <span className="runeIndex">WAYS / 001</span>
+          <p className="runeIntroSide">TRAINING & SOCIAL CLUB<br/>LEVALLOIS-PERRET</p>
+        </div>
+        <div className="runeIntroGrid">
+          <h2>LE SPORT.<br/><em>ET TOUT CE QU’IL Y A AUTOUR.</em></h2>
+          <div className="runeIntroCopy">
+            <p className="runeLead">WAYS est un club où l’on vient s’entraîner, mais pas seulement.</p>
+            <p>Training, studios, récupération, coworking et coffee shop cohabitent dans un même lieu. Un espace pensé pour bouger, travailler, souffler et se retrouver sans multiplier les adresses.</p>
+            <Link href="/abonnements" className="runeTextLink">DEVENIR MEMBRE <span>↗</span></Link>
           </div>
         </div>
       </section>
 
-      <section id="journey" className="journey">
-        {chapters.map((chapter, index) => (
-          <article key={chapter.id} id={chapter.id} className="chapter" style={{ backgroundImage: `linear-gradient(90deg, rgba(16,14,13,.80), rgba(16,14,13,.12)), url("${chapter.image}")` }}>
-            <div className="chapterContent">
-              <span className="chapterKicker">{chapter.kicker}</span>
-              <h2>{chapter.title}</h2>
-              <p>{chapter.text}</p>
-              <div className="tags">{chapter.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-              {chapter.id === "studios" && <Link className="chapterLink" href="/cours">VOIR LES COURS ↗</Link>}
-            </div>
-            <div className="chapterNumber">0{index + 1}</div>
-          </article>
-        ))}
+      <div className="waysTicker" aria-hidden="true">
+        <div>TRAINING <span>·</span> PILATES <span>·</span> LAGREE <span>·</span> RPM <span>·</span> COWORKING <span>·</span> COFFEE <span>·</span> COMMUNITY <span>·</span> WAYS <span>·</span></div>
+      </div>
+
+      <section className="runePhotoStatement">
+        <div className="statementImage statementImageA" />
+        <div className="statementWords">
+          <span>MOVE</span><span>STAY</span><span>CONNECT</span>
+        </div>
+        <div className="statementImage statementImageB" />
       </section>
 
-      <section className="launchDrop">
+      <section id="journey" className="runeSpaces">
+        <div className="runeSpacesHead">
+          <span className="runeIndex">WAYS / SPACES</span>
+          <h2>UN CLUB.<br/>PLUSIEURS RYTHMES.</h2>
+          <p>Chaque espace a sa fonction. Ensemble, ils transforment WAYS en lieu de vie autant qu’en lieu d’entraînement.</p>
+        </div>
+
+        <div className="spaceRows">
+          {spaces.map((space, index) => (
+            <article className={`spaceRow ${index % 2 ? "reverse" : ""}`} id={space.id} key={space.id}>
+              <div className="spaceMeta">
+                <span className="spaceNo">[ {space.no} ]</span>
+                <h3>{space.title}</h3>
+                <p className="spaceLine">{space.line}</p>
+                <p className="spaceText">{space.text}</p>
+                {space.id === "studios" && <Link href="/cours" className="runeTextLink">VOIR LES COURS <span>↗</span></Link>}
+              </div>
+              <div className="spaceImageWrap">
+                <img src={space.image} alt={`${space.title} chez WAYS`} loading="lazy" />
+                <span className="imageCaption">WAYS · {space.no}</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="socialClubBlock">
+        <div className="socialClubTitle">
+          <span className="runeIndex">BEYOND TRAINING</span>
+          <h2>TA JOURNÉE<br/>CONTINUE ICI.</h2>
+        </div>
+        <div className="socialCards">
+          <article className="socialCard coworkCard">
+            <div className="socialCardImage" />
+            <div className="socialCardCopy"><span>[ WORK ]</span><h3>Travaille.<br/>Bouge.<br/>Recommence.</h3><p>Un espace coworking intégré au club pour enchaîner séance, douche et rendez-vous sans perdre le rythme.</p></div>
+          </article>
+          <article className="socialCard coffeeCard">
+            <div className="socialCardImage" />
+            <div className="socialCardCopy"><span>[ COFFEE ]</span><h3>L’effort.<br/>Puis le café.</h3><p>Boissons signature, café et vraie pause. Le coffee shop prolonge l’expérience WAYS au-delà du vestiaire.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section className="launchDrop runeLaunch">
         <div className="launchImage" />
         <div className="launchCopy">
-          <span className="eyebrow">FIRST MEMBERS</span>
-          <h2>PREMIERS MEMBRES.<br/>PREMIER SIGNE.</h2>
-          <p className="launchLead">Une <strong>serviette WAYS brodée</strong> sera offerte aux premiers adhérents.</p>
-          <p>Un objet utile, premium et pensé pour durer. La première pièce WAYS pour celles et ceux qui entrent dans le club dès le début. Dans la limite des stocks disponibles.</p>
+          <span className="eyebrow">FIRST MEMBERS / LIMITED</span>
+          <h2>LES PREMIERS<br/>ONT LEUR SIGNE.</h2>
+          <p className="launchLead">Une <strong>serviette WAYS brodée</strong> offerte aux premiers adhérents.</p>
+          <p>Une pièce pensée pour le club, sobre et utile. Le premier objet WAYS pour celles et ceux qui entrent dans l’histoire dès l’ouverture. Dans la limite des stocks disponibles.</p>
           <Link className="primaryDark" href="/abonnements">FAIRE PARTIE DES PREMIERS</Link>
         </div>
       </section>
 
-      <section className="dayStory">
-        <div className="eyebrow">ONE CLUB. MORE THAN ONE MOMENT.</div>
-        <div className="timeline"><div><strong>07:30</strong><span>TRAIN</span></div><div><strong>08:45</strong><span>COFFEE</span></div><div><strong>09:00</strong><span>WORK</span></div><div><strong>18:30</strong><span>PILATES</span></div></div>
-        <h2>UN CLUB. PLUSIEURS MOMENTS DE TA JOURNÉE.</h2>
+      <section className="runeDay">
+        <span className="runeIndex">A DAY AT WAYS</span>
+        <div className="runeDayGrid">
+          <div><span>07:30</span><strong>TRAIN</strong></div>
+          <div><span>08:45</span><strong>COFFEE</strong></div>
+          <div><span>09:00</span><strong>WORK</strong></div>
+          <div><span>18:30</span><strong>PILATES</strong></div>
+        </div>
+        <p>Un seul lieu. Plusieurs moments de ta journée.</p>
       </section>
 
-      <section id="membership" className="membership">
-        <div className="membershipIntro"><span className="eyebrow">MEMBERSHIPS</span><h2>TON RYTHME. TON ACCÈS.</h2><p>Choisis la façon dont tu veux vivre WAYS : training, studios ou expérience complète du club.</p></div>
+      <section id="membership" className="membership runeMembership">
+        <div className="membershipIntro"><span className="eyebrow">MEMBERSHIPS</span><h2>CHOISIS TA FAÇON DE VIVRE WAYS.</h2><p>Training, studios ou expérience complète. Le bon abonnement est celui qui suit ton rythme.</p></div>
         <div className="plans">{memberships.map(plan => <article key={plan.name} className={plan.featured ? "plan featured" : "plan"}>{plan.featured && <span className="popular">LE PLUS CHOISI</span>}<div><span className="planName">{plan.name}</span><p>{plan.note}</p></div><strong className="price">{plan.price}<small>/mois</small></strong><ul>{plan.features.map(feature => <li key={feature}>{feature}</li>)}</ul><Link href="/abonnements">DÉCOUVRIR <span>↗</span></Link></article>)}</div>
         <p className="priceNote">Tarifs et conditions à confirmer avant ouverture commerciale définitive.</p>
       </section>
 
-      <section id="levallois" className="localSeo">
-        <div><span className="eyebrow">WAYS · LEVALLOIS-PERRET</span><h2>LE SPORT.<br/>ET TOUT CE QU’IL Y A AUTOUR.</h2></div>
-        <div className="localCopy"><p>WAYS est un training club premium à Levallois-Perret réunissant musculation, cardio, Pilates, Lagree, RPM, cours collectifs, espace coworking et coffee shop.</p><div className="faq"><details><summary>Y a-t-il un espace coworking chez WAYS ?</summary><p>Oui. Un espace de travail est prévu pour permettre aux membres de travailler autour de leur séance.</p></details><details><summary>WAYS dispose-t-il d’un coffee shop ?</summary><p>Oui. Le coffee shop fait partie intégrante du concept et prolonge l’expérience du club.</p></details><details><summary>Quels cours sont proposés ?</summary><p>Pilates, Lagree, RPM, Cardio Boxing, Cardio Abdos-Fessiers et Body Sculpt font partie du programme prévu.</p></details><details><summary>Que reçoivent les premiers adhérents ?</summary><p>Une serviette WAYS brodée est prévue comme cadeau de lancement pour les premiers adhérents, dans la limite des stocks disponibles.</p></details></div><Link className="chapterLink" href="/levallois">WAYS LEVALLOIS ↗</Link></div>
+      <section id="levallois" className="localSeo runeLocal">
+        <div><span className="eyebrow">WAYS · LEVALLOIS-PERRET</span><h2>UN NOUVEAU<br/>POINT DE RALLIEMENT.</h2></div>
+        <div className="localCopy"><p>WAYS est un training & social club à Levallois-Perret réunissant musculation, cardio, Pilates, Lagree, RPM, cours collectifs, espace coworking et coffee shop.</p><div className="faq"><details><summary>Y a-t-il un espace coworking chez WAYS ?</summary><p>Oui. Un espace de travail est prévu pour permettre aux membres de travailler autour de leur séance.</p></details><details><summary>WAYS dispose-t-il d’un coffee shop ?</summary><p>Oui. Le coffee shop fait partie intégrante du concept et prolonge l’expérience du club.</p></details><details><summary>Quels cours sont proposés ?</summary><p>Pilates, Lagree, RPM, Cardio Boxing, Cardio Abdos-Fessiers et Body Sculpt font partie du programme prévu.</p></details><details><summary>Que reçoivent les premiers adhérents ?</summary><p>Une serviette WAYS brodée est prévue comme cadeau de lancement pour les premiers adhérents, dans la limite des stocks disponibles.</p></details></div><Link className="runeTextLink lightLink" href="/levallois">DÉCOUVRIR WAYS LEVALLOIS <span>↗</span></Link></div>
       </section>
 
-      <section id="visit" className="finalCta"><span className="eyebrow">YOUR WAY STARTS HERE.</span><h2>ENTRE.<br/>TROUVE TON RYTHME.</h2><div className="ctaRow"><Link className="primaryCta" href="/abonnements">REJOINDRE WAYS</Link><a className="secondaryCta" href="mailto:contact@ways-sport.fr?subject=Visite%20WAYS">VISITER LE CLUB</a></div></section>
+      <section id="visit" className="finalCta runeFinal"><span className="eyebrow">WAYS / LEVALLOIS</span><h2>VIENS POUR LE SPORT.<br/><em>RESTE POUR LE CLUB.</em></h2><div className="ctaRow"><Link className="primaryCta" href="/abonnements">DEVENIR MEMBRE</Link><a className="secondaryCta" href="mailto:contact@ways-sport.fr?subject=Visite%20WAYS">VISITER LE CLUB</a></div></section>
 
-      <footer><div className="footerBrand"><img src="/ways-logo.svg" alt="WAYS"/></div><div><span>TRAINING CLUB</span><span>LEVALLOIS-PERRET</span></div><div><Link href="/abonnements">ABONNEMENTS</Link><Link href="/cours">COURS</Link><Link href="/levallois">LEVALLOIS</Link></div><small>© 2026 WAYS · À TA FAÇON. À FOND.</small></footer>
+      <footer><div className="footerBrand"><img src="/ways-logo.svg" alt="WAYS"/></div><div><span>TRAINING & SOCIAL CLUB</span><span>LEVALLOIS-PERRET</span></div><div><Link href="/abonnements">ABONNEMENTS</Link><Link href="/cours">COURS</Link><Link href="/levallois">LEVALLOIS</Link></div><small>© 2026 WAYS · À TA FAÇON. À FOND.</small></footer>
     </main>
   );
 }
