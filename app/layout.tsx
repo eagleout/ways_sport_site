@@ -4,6 +4,7 @@ import "./globals.css";
 import "./v7.css";
 import "./membership-v7.css";
 import "./interior-v7.css";
+import "./v7-media.css";
 
 const display = DM_Sans({ subsets:["latin"], weight:["500","600","700"], variable:"--font-display", display:"swap" });
 const body = Manrope({ subsets:["latin"], weight:["400","500","600","700"], variable:"--font-body", display:"swap" });
