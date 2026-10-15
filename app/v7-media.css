@@ -10,5 +10,10 @@
 .m7-founders-grid{grid-template-columns:minmax(0,.85fr) minmax(320px,.88fr)}
 .m7-founders-media{width:min(480px,100%);justify-self:center;background:#e8dfd5}
 .m7-founders-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
+
+/* Light-header logo contrast: the source SVG is chalk/copper, so on the chalk sticky header
+   the chalk lettering disappeared and only the copper mark remained visible. */
+.v7-header.is-solid .v7-logo img{filter:brightness(0) saturate(100%)!important;opacity:1}
+
 @media(max-width:1050px){.v7-recover-grid,.v7-work-grid{grid-template-columns:1fr}.v7-recover-media,.v7-work-media{justify-self:center}.m7-founders-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.v7-recover-media,.v7-work-media,.v7-founders-media,.m7-founders-media{width:100%;max-width:none}.m7-founders-grid{grid-template-columns:1fr}}
