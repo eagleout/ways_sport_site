@@ -1,78 +1,80 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import SiteHeader from "@/components/SiteHeader";
+import CourseCard from "@/components/CourseCard";
+import CtaBand from "@/components/CtaBand";
+import PageHero from "@/components/PageHero";
+import { SITE_URL, courses } from "@/lib/content";
+import { media } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "Cours à Levallois : Pilates, Lagree, RPM & Boxing",
-  description: "Découvre les studios WAYS à Levallois-Perret : Pilates, Lagree, RPM, Cardio Boxing, Cardio Abdos-Fessiers et Body Sculpt.",
+  title: "Cours collectifs à Levallois : Pilates, Lagree, RPM & Boxing",
+  description:
+    "Découvre les cours WAYS à Levallois-Perret : Pilates, Lagree, RPM, Cardio Boxing, Cardio Abdos-Fessiers et Body Sculpt, dans un training club premium.",
   alternates: { canonical: "/cours" },
 };
-
-const courses = [
-  { slug: "pilates", name: "Pilates", tag: "Control", text: "Renforcement profond, posture, respiration et qualité du mouvement." },
-  { slug: "lagree", name: "Lagree", tag: "Slow burn", text: "Tension musculaire continue, contrôle et intensité progressive." },
-  { slug: "rpm", name: "RPM", tag: "Ride", text: "Un travail cardio rythmé, construit autour de l’endurance et du tempo." },
-  { slug: "cardio-boxing", name: "Cardio Boxing", tag: "Impact", text: "Cardio, coordination et enchaînements inspirés de la boxe." },
-  { slug: "cardio-abdos-fessiers", name: "Cardio A.F.", tag: "Cardio + core", text: "Séquences cardio et renforcement du centre, des jambes et des fessiers." },
-  { slug: "body-sculpt", name: "Body Sculpt", tag: "Build", text: "Un renforcement global avec des mouvements accessibles et progressifs." },
-];
 
 export default function CoursesPage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Cours collectifs WAYS Levallois",
-    url: "https://ways-sport-site.vercel.app/cours",
-    about: courses.map((course) => ({ "@type": "ExercisePlan", name: course.name, url: `https://ways-sport-site.vercel.app/cours/${course.slug}` })),
+    url: `${SITE_URL}/cours`,
+    about: courses.map((course) => ({
+      "@type": "ExercisePlan",
+      name: course.name,
+      url: `${SITE_URL}/cours/${course.slug}`,
+    })),
   };
 
   return (
-    <main className="i7-page">
+    <main id="contenu">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <SiteHeader />
+      <PageHero
+        crumbs={[{ href: "/", label: "WAYS" }, { label: "Studios" }]}
+        title={
+          <>
+            Le rythme change. <span className="accent copper">L’exigence reste.</span>
+          </>
+        }
+        intro="Pas cinquante concepts. Les bons. WAYS réunit des formats complémentaires pour travailler le contrôle, la force, le cardio, la coordination et la mobilité, avec une vraie ambiance de studio."
+        image={media.rpm}
+      />
 
-      <section className="i7-hero">
-        <div className="i7-shell i7-hero-grid">
-          <span className="i7-kicker">WAYS / STUDIOS</span>
-          <div><h1>Studios.</h1></div>
-          <div className="i7-hero-side">Des disciplines complémentaires, réunies dans des studios dédiés. Six formats pour travailler force, contrôle, cardio, coordination et mobilité.</div>
-        </div>
-        <figure className="i7-shell i7-hero-media">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=2400&q=92" alt="Visuel d’ambiance représentatif d’un studio d’entraînement" fetchPriority="high" />
-        </figure>
-      </section>
-
-      <section className="i7-section">
-        <div className="i7-shell">
-          <div className="i7-section-head">
-            <span className="i7-kicker">THE PROGRAM</span>
-            <h2>Six formats.<br />Une même exigence.</h2>
-            <p>Choisis un cours selon ton objectif, ton énergie et la façon dont tu veux bouger ce jour-là.</p>
+      <section className="section section--chalk" aria-labelledby="cours-liste">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <span className="kicker" data-reveal>
+                Six formats
+              </span>
+              <h2 id="cours-liste" className="display" data-split>
+                Choisis ton <span className="accent">intensité.</span>
+              </h2>
+            </div>
+            <p data-reveal>
+              Chaque cours indique son intensité, son focus et le public visé. Commence par celui qui te ressemble, puis
+              alterne.
+            </p>
           </div>
-          <div className="i7-course-list">
+          <div className="course-grid">
             {courses.map((course, index) => (
-              <Link href={`/cours/${course.slug}`} className="i7-course-row" key={course.slug}>
-                <span className="i7-course-no">0{index + 1}</span>
-                <strong className="i7-course-name">{course.name}</strong>
-                <span className="i7-course-tag">{course.tag}</span>
-                <p>{course.text}</p>
-                <span className="i7-course-arrow">→</span>
-              </Link>
+              <CourseCard key={course.slug} course={course} index={index} headingLevel={3} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="i7-image-band">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=2400&q=90" alt="Visuel d’ambiance représentatif d’un entraînement en studio" loading="lazy" />
-      </section>
-
-      <section className="i7-final">
-        <div className="i7-shell i7-final-grid">
-          <div><span className="i7-kicker">WAYS / MEMBERSHIPS</span><h2>Join the club.</h2></div>
-          <Link href="/abonnements">Voir les abonnements →</Link>
-        </div>
-      </section>
+      <CtaBand
+        title={
+          <>
+            Le cours finit.
+            <br />
+            WAYS continue.
+          </>
+        }
+        text="Training libre, studios, coworking et coffee shop : ta séance est un moment de la journée, pas une adresse de plus."
+        href="/abonnements"
+        label="Découvrir les abonnements"
+      />
     </main>
   );
 }
