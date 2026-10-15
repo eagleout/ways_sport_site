@@ -47,31 +47,31 @@ export default function DayAtWays() {
         scrollTrigger: {
           trigger: stage,
           start: "top top",
-          end: `+=${(moments.length - 1) * 95}%`,
+          end: `+=${(moments.length - 1) * 110}%`,
           pin: true,
           scrub: 1,
           anticipatePin: 1,
-          snap: { snapTo: "labels", duration: { min: 0.3, max: 0.9 }, ease: "power2.inOut", delay: 0.12 },
           onUpdate: (self) => setDot(Math.round(self.progress * (moments.length - 1))),
         },
       });
 
-      tl.addLabel("m0");
+      // Chaque moment a un palier de lecture, puis une transition d'environ un tiers du segment
+      const SEGMENT = 1.8;
+      const HOLD = 0.5;
       moments.forEach((moment, index) => {
         if (index === 0) return;
         const previous = moments[index - 1];
         const tone = TONES[dayMoments[index].tone];
-        const at = `m${index - 1}+=0.2`;
-        tl.to(previous.querySelector(".moment__info"), { autoAlpha: 0, yPercent: -18, duration: 0.5 }, at)
+        const at = (index - 1) * SEGMENT + HOLD;
+        tl.to(previous.querySelector(".moment__info"), { autoAlpha: 0, yPercent: -18, duration: 0.45 }, at)
           .to(previous.querySelector(".moment__media img"), { scale: 1.12, duration: 1 }, at)
           .to(moment.querySelector(".moment__media"), { clipPath: "inset(0% 0% 0% 0%)", duration: 0.9 }, at)
           .fromTo(moment.querySelector(".moment__media img"), { scale: 1.25 }, { scale: 1, duration: 1 }, at)
-          .to(moment.querySelector(".moment__info"), { autoAlpha: 1, yPercent: 0, duration: 0.6 }, `m${index - 1}+=0.55`)
+          .to(moment.querySelector(".moment__info"), { autoAlpha: 1, yPercent: 0, duration: 0.55 }, at + 0.4)
           .to(bg, { backgroundColor: tone.bg, duration: 0.8 }, at)
-          .to(stage, { color: tone.fg, duration: 0.8 }, at)
-          .addLabel(`m${index}`, `m${index - 1}+=1.3`);
+          .to(stage, { color: tone.fg, duration: 0.8 }, at);
       });
-      tl.to({}, { duration: 0.2 });
+      tl.to({}, { duration: 0.1 }, (moments.length - 1) * SEGMENT + 0.5);
 
       return () => {
         section.classList.remove("is-pinned");

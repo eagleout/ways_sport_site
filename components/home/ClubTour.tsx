@@ -33,9 +33,34 @@ export default function ClubTour() {
       const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
       let current = -1;
 
+      // Signalétique calée sur la position réelle du couloir (y compris pendant le lissage du scrub)
+      const updateHud = () => {
+        const total = distance();
+        const x = Number(gsap.getProperty(track, "x")) || 0;
+        if (fill) gsap.set(fill, { scaleX: total ? Math.min(1, -x / total) : 0 });
+        // Zone active : celle dont le texte occupe le plus de largeur à l'écran
+        let active = 0;
+        let best = -1;
+        panels.forEach((panel, index) => {
+          const rect = (panel.querySelector(".zone__copy") ?? panel).getBoundingClientRect();
+          const visible = Math.min(rect.right, window.innerWidth) - Math.max(rect.left, 0);
+          if (visible > best) {
+            best = visible;
+            active = index;
+          }
+        });
+        if (active !== current) {
+          current = active;
+          const zone = zones[active];
+          if (zoneNumber) zoneNumber.textContent = zone.number;
+          if (zoneName) zoneName.textContent = zone.sign;
+        }
+      };
+
       const move = gsap.to(track, {
         x: () => -distance(),
         ease: "none",
+        onUpdate: updateHud,
         scrollTrigger: {
           trigger: section,
           start: "top top",
@@ -44,20 +69,7 @@ export default function ClubTour() {
           scrub: 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (fill) gsap.set(fill, { scaleX: self.progress });
-            const center = window.innerWidth * 0.5;
-            let active = 0;
-            panels.forEach((panel, index) => {
-              if (panel.getBoundingClientRect().left < center) active = index;
-            });
-            if (active !== current) {
-              current = active;
-              const zone = zones[active];
-              if (zoneNumber) zoneNumber.textContent = zone.number;
-              if (zoneName) zoneName.textContent = zone.sign;
-            }
-          },
+          onRefresh: updateHud,
         },
       });
 

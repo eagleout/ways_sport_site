@@ -188,8 +188,8 @@ html.is-locked {
 
 /* Masques SplitText */
 .split-line-mask {
-  padding-bottom: 0.04em;
-  margin-bottom: -0.04em;
+  padding: 0.14em 0 0.06em;
+  margin: -0.14em 0 -0.06em;
 }
 
 /* ---------- États d'apparition (pilotés par Experience) ---------- */
@@ -498,7 +498,7 @@ html:not(.js) .preloader {
   bottom: clamp(24px, 5vh, 48px);
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.24em;
@@ -691,7 +691,7 @@ html:not(.js) .preloader {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 20px;
   padding-top: 28px;
   border-top: 1px solid var(--line-dark);
@@ -910,6 +910,8 @@ html:not(.js) .preloader {
   position: absolute;
   top: 30%;
   width: var(--logo-w);
+  max-width: none;
+  height: auto;
   transform: translateY(-50%);
   opacity: 0.94;
 }
@@ -1079,7 +1081,7 @@ html:not(.js) .preloader {
   bottom: clamp(44px, 9vh, 104px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-  align-items: end;
+  align-items: flex-end;
   gap: 40px;
   pointer-events: none;
 }
@@ -1098,9 +1100,10 @@ html:not(.js) .preloader {
 }
 .hero__title-line {
   display: block;
-  overflow: hidden;
-  padding: 0.14em 0 0.07em;
-  margin: -0.14em 0 -0.07em;
+}
+.hero-line-mask {
+  padding: 0.16em 0 0.08em;
+  margin: -0.16em 0 -0.08em;
 }
 .hero__char {
   will-change: transform;
@@ -1249,7 +1252,7 @@ html:not(.js) .preloader {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
   gap: clamp(28px, 4vw, 72px);
-  align-items: end;
+  align-items: flex-end;
 }
 .zone__media {
   position: relative;
@@ -1315,7 +1318,7 @@ html:not(.js) .preloader {
 }
 .tour__outro h3 {
   margin: 20px 0 30px;
-  font-size: clamp(56px, 7.2vw, 136px);
+  font-size: clamp(52px, 6vw, 116px);
 }
 
 /* Mode horizontal (activé en JS sur desktop) */
@@ -1493,7 +1496,7 @@ html:not(.js) .preloader {
   bottom: clamp(40px, 8vh, 96px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 440px);
-  align-items: end;
+  align-items: flex-end;
   gap: 40px;
 }
 .throttle__copy h2 {
@@ -1552,7 +1555,7 @@ html:not(.js) .preloader {
   padding: 0 var(--gutter);
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 32px;
 }
 .studios__head h2 {
@@ -1854,7 +1857,7 @@ html:not(.js) .preloader {
   margin: 0 auto clamp(48px, 6vw, 90px);
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 32px;
 }
 .plans-section__head h2 {
@@ -2191,7 +2194,7 @@ html:not(.js) .preloader {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
-  align-items: end;
+  align-items: flex-end;
   gap: 40px;
 }
 .crumbs {
@@ -2249,7 +2252,7 @@ html:not(.js) .preloader {
 .section-head {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 32px;
   margin-bottom: clamp(44px, 5vw, 80px);
 }
@@ -2442,7 +2445,7 @@ html:not(.js) .preloader {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   gap: 40px;
 }
 .cta-band h2 {

@@ -39,9 +39,14 @@ export default function HeroEntrance() {
 
         const q = gsap.utils.selector(section);
         const title = q(".hero__title")[0] as HTMLElement;
-        const split = SplitText.create(q(".hero__title-line"), { type: "words,chars", charsClass: "hero__char" });
+        const split = SplitText.create(q(".hero__title-line"), {
+          type: "lines,words,chars",
+          mask: "lines",
+          linesClass: "hero-line",
+          charsClass: "hero__char",
+        });
         gsap.set(title, { visibility: "visible" });
-        gsap.set(split.chars, { yPercent: 118 });
+        gsap.set(split.chars, { yPercent: 190 });
         gsap.set(q("[data-hero-in]"), { opacity: 0, y: 24 });
 
         // Arrivée devant les portes, une fois l'intro terminée
@@ -159,14 +164,12 @@ export default function HeroEntrance() {
               <div className="door__glass" />
               <img className="door__logo" src="/ways-logo.svg" alt="" width={980} height={200} />
               <span className="door__handle" />
-              <span className="door__label">Training Club</span>
             </div>
             <div className="door door--right">
               <div className="door__panel" />
               <div className="door__glass" />
               <img className="door__logo" src="/ways-logo.svg" alt="" width={980} height={200} />
               <span className="door__handle" />
-              <span className="door__label">Levallois-Perret</span>
             </div>
           </div>
         </div>
