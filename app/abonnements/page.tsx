@@ -9,7 +9,7 @@ import { CONTACT_EMAIL, SITE_URL, plans } from "@/lib/content";
 import { media } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "Abonnements WAYS Levallois",
+  title: "Abonnements et pré-inscription",
   description:
     "Les abonnements WAYS Levallois : Move, Studio et All Ways. Training, studios, coworking, coffee shop et serviette WAYS brodée offerte aux premiers adhérents.",
   alternates: { canonical: "/abonnements" },

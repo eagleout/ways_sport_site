@@ -7,7 +7,7 @@ import { clubSchema, faqSchema, levalloisFaq } from "@/lib/content";
 import { media } from "@/lib/media";
 
 export const metadata: Metadata = {
-  title: "Salle de sport à Levallois-Perret | WAYS Training Club",
+  title: "Salle de sport à Levallois-Perret",
   description:
     "WAYS est un training club à Levallois-Perret avec musculation, cardio, Pilates, Lagree, RPM, cours collectifs, espace coworking et coffee shop.",
   alternates: { canonical: "/levallois" },
