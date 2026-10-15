@@ -1,10 +1,26 @@
 /* V7 media resolution guardrails. Reference images stay at their real useful size instead of being stretched and blurred. */
 .v7-recover-grid{grid-template-columns:minmax(300px,.82fr) minmax(0,1.05fr)}
-.v7-recover-media{width:min(624px,100%);height:auto;aspect-ratio:624/326;justify-self:end}
-.v7-recover-media img{width:100%;height:100%;object-fit:cover}
+.v7-recover-media{
+  width:min(760px,100%);
+  height:auto;
+  aspect-ratio:4/3;
+  justify-self:end;
+  overflow:hidden;
+  background:#2d251f url("https://images.unsplash.com/photo-1763485956343-61b0163a3e7e?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=82&w=2200") center 48%/cover no-repeat;
+}
+.v7-recover-media img{display:none!important}
+
 .v7-work-grid{grid-template-columns:minmax(300px,.82fr) minmax(0,1.05fr)}
-.v7-work-media{width:min(624px,100%);justify-self:end}
-.v7-work-media img{width:100%;aspect-ratio:624/404;object-fit:cover}
+.v7-work-media{
+  width:min(760px,100%);
+  aspect-ratio:1.45/1;
+  justify-self:end;
+  overflow:hidden;
+  background:#d5cdc4 url("https://images.unsplash.com/photo-1783539577633-9a708553ca65?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=82&w=2200") center center/cover no-repeat;
+}
+.v7-work-media img{display:none!important}
+.v7-work-media figcaption{z-index:2}
+
 .v7-founders-media{width:min(480px,100%);justify-self:center;background:#e5ddd4}
 .v7-founders-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .m7-founders-grid{grid-template-columns:minmax(0,.85fr) minmax(320px,.88fr)}
@@ -15,5 +31,14 @@
    the chalk lettering disappeared and only the copper mark remained visible. */
 .v7-header.is-solid .v7-logo img{filter:brightness(0) saturate(100%)!important;opacity:1}
 
-@media(max-width:1050px){.v7-recover-grid,.v7-work-grid{grid-template-columns:1fr}.v7-recover-media,.v7-work-media{justify-self:center}.m7-founders-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:760px){.v7-recover-media,.v7-work-media,.v7-founders-media,.m7-founders-media{width:100%;max-width:none}.m7-founders-grid{grid-template-columns:1fr}}
+@media(max-width:1050px){
+  .v7-recover-grid,.v7-work-grid{grid-template-columns:1fr}
+  .v7-recover-media,.v7-work-media{justify-self:center;width:min(820px,100%)}
+  .m7-founders-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .v7-recover-media,.v7-work-media,.v7-founders-media,.m7-founders-media{width:100%;max-width:none}
+  .v7-recover-media{aspect-ratio:4/3}
+  .v7-work-media{aspect-ratio:1.12/1}
+  .m7-founders-grid{grid-template-columns:1fr}
+}
